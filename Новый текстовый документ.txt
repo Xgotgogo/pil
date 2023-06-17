@@ -1,0 +1,100 @@
+//Окно-внешка
+<Window x:Name="window_OformlenieZakaza" x:Class="RuskayaKosmetika.OformelenieZakaza"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RuskayaKosmetika"
+        mc:Ignorable="d"
+        Title="Формирование заказа" Height="450" Width="600" Background="#FF22A2A5">
+    <Grid x:Name="grid_OformelieZakaza" Background="#FFA0A0A0" RenderTransformOrigin="0.994,0.995">
+        <Button x:Name="btn_Podtverdit" Content="Подтвердить" HorizontalAlignment="Left" Margin="278,256,0,0" VerticalAlignment="Top" Click="btn_Podtverdit_Click"/>
+        <Button x:Name="btn_Prodoljit" Content="Продолжить" Margin="264,167,224,0" VerticalAlignment="Top" Height="26" Click="btn_Prodoljit_Click"/>
+        <RadioButton x:Name="rbtn_UR" Content="Юридическое лицо" Margin="237,137,184,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtn_FL" Content="Физическое лицо" Margin="237,157,184,0" VerticalAlignment="Top" RenderTransformOrigin="0.284,0.566"/>
+        <Label x:Name="label_Uslyga" Content="Введите название услуги" Margin="242,191,165,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_Uslyga" HorizontalAlignment="Left" Margin="256,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.046,1.153"/>
+        <Label x:Name="label_NazvanieCompanii" Content="Название Компании&#xD;&#xA;" HorizontalAlignment="Left" Margin="184,107,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="label_FIO" Content="Введите ваше ФИО&#xD;&#xA;" Margin="184,73,280,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_FIO" HorizontalAlignment="Left" Margin="332,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textbox_NazvanieCompanii" HorizontalAlignment="Left" Margin="332,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_zapolneniedn" Content="Заполнение данных" Margin="242,10,208,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_Nazad" Content="Назад" Margin="502,384,0,0" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left" Width="51" Click="btn_Nazad_Click"/>
+
+
+    </Grid>
+</Window>
+// КОД
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace RuskayaKosmetika
+{
+    /// <summary>
+    /// Логика взаимодействия для OformelenieZakaza.xaml
+    /// </summary>
+    public partial class OformelenieZakaza : Window
+    {
+        public OformelenieZakaza()
+        {
+            InitializeComponent();
+            btn_Podtverdit.Visibility = Visibility.Hidden;
+            rbtn_UR.Visibility = Visibility.Hidden;
+            rbtn_FL.Visibility = Visibility.Hidden;
+            label_Uslyga.Visibility = Visibility.Hidden;
+            textbox_Uslyga.Visibility = Visibility.Hidden;
+        }
+
+        private void btn_Prodoljit_Click(object sender, RoutedEventArgs e)
+        {
+            label_FIO.Visibility = Visibility.Hidden;
+            label_NazvanieCompanii.Visibility = Visibility.Hidden;
+            textbox_FIO.Visibility = Visibility.Hidden;
+            textbox_NazvanieCompanii.Visibility = Visibility.Hidden;
+            btn_Prodoljit.Visibility = Visibility.Hidden;
+
+            btn_Podtverdit.Visibility = Visibility.Visible;
+            rbtn_UR.Visibility = Visibility.Visible;
+            rbtn_FL.Visibility = Visibility.Visible;
+            label_Uslyga.Visibility = Visibility.Visible;
+            textbox_Uslyga.Visibility = Visibility.Visible;
+        }
+
+        private void btn_Podtverdit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Готово!");
+        }
+
+        private void btn_Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            label_FIO.Visibility = Visibility.Visible;
+            label_NazvanieCompanii.Visibility = Visibility.Visible;
+            textbox_FIO.Visibility = Visibility.Visible;
+            textbox_NazvanieCompanii.Visibility = Visibility.Visible;
+            btn_Prodoljit.Visibility = Visibility.Visible;
+
+            btn_Podtverdit.Visibility = Visibility.Hidden;
+            rbtn_UR.Visibility = Visibility.Hidden;
+            rbtn_FL.Visibility = Visibility.Hidden;
+            label_Uslyga.Visibility = Visibility.Hidden;
+            textbox_Uslyga.Visibility = Visibility.Hidden;
+        }
+    }
+}
+//юнит тест 1
+            int a = 2;
+            int b = 3 - 1;
+            Assert.AreEqual (a, b);
+
+
